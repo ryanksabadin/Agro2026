@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGRINHO 2026 • Agro Forte: Futuro Sustentável</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+
+        .section-header {
+            font-size: 3.1rem;
+            line-height: 1.0;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.035);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-scrolled {
+            background: rgba(10, 10, 10, 0.96);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .pillar-card {
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .pillar-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .modern-button {
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .modern-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 15px -3px rgb(16 185 129 / 0.25);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: #10b981;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1.5px;
+            bottom: -3px;
+            left: 0;
+            background-color: #10b981;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .leaf-bg {
+            background-image: 
+                radial-gradient(circle at 20% 25%, rgba(16, 185, 129, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 75%, rgba(52, 211, 153, 0.03) 0%, transparent 50%);
+        }
+
+        .hero-image {
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0a] text-white overflow-x-hidden">
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0a0a0a]/95 border-b border-white/10">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3.5">
+                    <div class="w-10 h-10 bg-emerald-500 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/20">
+                        <i class="fas fa-seedling text-[#0a0a0a] text-[26px]"></i>
+                    </div>
+                    <div class="flex items-baseline">
+                        <span class="font-display text-[28px] font-bold tracking-[-1.5px]">AGRINHO</span>
+                        <span class="font-display text-emerald-500 text-[28px] font-bold tracking-[-1.5px] ml-0.5">2026</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-x-10 text-[14.5px]">
+                    <a href="#sobre" class="nav-link text-zinc-300 hover:text-white">Sobre o Agro</a>
+                    <a href="#tema" class="nav-link text-zinc-300 hover:text-white">O Tema</a>
+                    <a href="#pilares" class="nav-link text-zinc-300 hover:text-white">Os Pilares</a>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-3">
+                    <a href="#tema"
+                       class="modern-button px-7 py-2.5 bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 text-[#0a0a0a] font-semibold rounded-2xl text-sm flex items-center gap-x-2 shadow-md">
+                        <span>Explorar o Tema</span>
+                    </a>
+                </div>
+
+                <!-- Mobile -->
+                <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center text-xl" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#0a0a0a]">
+            <div class="px-8 py-6 flex flex-col gap-y-4 text-[15px]">
+                <a href="#sobre" class="py-1 text-zinc-300" onclick="toggleMobileMenu()">Sobre o Agro</a>
+                <a href="#tema" class="py-1 text-zinc-300" onclick="toggleMobileMenu()">O Tema</a>
+                <a href="#pilares" class="py-1 text-zinc-300" onclick="toggleMobileMenu()">Os Pilares</a>
+                <div class="pt-3 border-t border-white/10">
+                    <a href="#tema" class="block w-full text-center py-3 bg-emerald-500 text-[#0a0a0a] font-semibold rounded-2xl" onclick="toggleMobileMenu()">
+                        Explorar o Tema
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO COM IMAGEM -->
+    <header class="min-h-[100dvh] flex items-center pt-16 relative leaf-bg">
+        <div class="max-w-screen-2xl mx-auto px-8 pt-8 pb-16">
+            <div class="grid md:grid-cols-12 gap-x-12 items-center">
+                
+                <!-- Texto -->
+                <div class="md:col-span-7 max-w-2xl">
+                    <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-white/5 border border-white/10 text-xs tracking-[1.5px] font-medium mb-8">
+                        <div class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
+                        <span>TEMA OFICIAL • AGRINHO 2026</span>
+                    </div>
+                    
+                    <h1 class="font-display text-[78px] md:text-[92px] leading-[0.88] font-bold tracking-[-5.5px] mb-1">
+                        AGRO FORTE
+                    </h1>
+                    <h2 class="font-display text-[54px] md:text-[64px] leading-[0.9] font-bold tracking-[-4px] text-emerald-400 mb-8">
+                        FUTURO SUSTENTÁVEL
+                    </h2>
+                    
+                    <p class="max-w-[520px] text-2xl text-zinc-400 leading-tight tracking-[-0.2px]">
+                        Uma reflexão sobre a força do agro brasileiro e seu papel na construção de um futuro mais sustentável, próspero e responsável.
+                    </p>
+                    
+                    <div class="flex flex-wrap items-center gap-4 mt-10">
+                        <a href="#tema" 
+                           class="modern-button inline-flex items-center justify-center gap-x-3 px-9 py-[17px] bg-emerald-500 hover:bg-emerald-600 text-[#0a0a0a] font-semibold text-[15px] rounded-3xl tracking-[-0.2px] shadow-lg shadow-emerald-500/30">
+                            CONHEÇA O TEMA
+                            <i class="fas fa-arrow-right text-sm ml-0.5"></i>
+                        </a>
+                        
+                        <a href="#pilares" 
+                           class="inline-flex items-center justify-center gap-x-3 px-8 py-[17px] border border-white/20 hover:bg-white/5 transition-all font-medium text-[15px] rounded-3xl tracking-[-0.2px]">
+                            Ver os 4 Pilares
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagem no Hero -->
+                <div class="md:col-span-5 mt-12 md:mt-0">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-emerald-500/10 rounded-[3rem] blur-3xl"></div>
+                        <img src="https://picsum.photos/id/1018/800/900" 
+                             class="hero-image w-full rounded-[2.75rem] border border-white/10 object-cover aspect-[4/4.5] md:aspect-auto shadow-2xl"
+                             alt="Campo brasileiro verde e sustentável com céu ao pôr do sol — representando força e futuro sustentável do agro">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- STATS -->
+    <div class="border-y border-white/10 bg-zinc-950/80">
+        <div class="max-w-screen-2xl mx-auto px-8 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10">
+                <div class="text-center md:text-left">
+                    <div class="text-[56px] font-display font-bold text-emerald-400 tracking-[-2px]">25%</div>
+                    <div class="text-sm text-zinc-400 mt-1 tracking-tight">do PIB brasileiro</div>
+                </div>
+                <div class="text-center md:text-left">
+                    <div class="text-[56px] font-display font-bold text-emerald-400 tracking-[-2px]">1 em 4</div>
+                    <div class="text-sm text-zinc-400 mt-1 tracking-tight">empregos no Brasil</div>
+                </div>
+                <div class="text-center md:text-left">
+                    <div class="text-[56px] font-display font-bold text-emerald-400 tracking-[-2px]">+R$ 1 tri</div>
+                    <div class="text-sm text-zinc-400 mt-1 tracking-tight">em exportações anuais</div>
+                </div>
+                <div class="text-center md:text-left">
+                    <div class="text-[56px] font-display font-bold text-emerald-400 tracking-[-2px]">1º</div>
+                    <div class="text-sm text-zinc-400 mt-1 tracking-tight">exportador global de alimentos</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- IMPORTÂNCIA DO AGRO -->
+    <section id="sobre" class="max-w-screen-2xl mx-auto px-8 pt-20 pb-16">
+        <div class="max-w-3xl">
+            <div class="uppercase text-emerald-500 text-xs tracking-[3px] font-semibold mb-3">O SETOR QUE MOVE O BRASIL</div>
+            <h2 class="section-header tracking-[-2.5px] leading-none">A importância do Agro<br>para o Brasil e o mundo</h2>
+        </div>
+        
+        <div class="max-w-3xl mt-9 text-[17px] leading-relaxed text-zinc-300">
+            <p>O Brasil é uma das maiores potências agropecuárias do planeta. O setor é responsável por garantir <span class="text-white font-medium">segurança alimentar</span> para milhões de pessoas, gerar riquezas, empregos qualificados e impulsionar a inovação tecnológica.</p>
+            
+            <p class="mt-6">Mais do que produzir alimentos, o agro brasileiro representa <span class="text-white font-medium">inovação</span>, <span class="text-white font-medium">sustentabilidade</span> e <span class="text-white font-medium">desenvolvimento regional</span>. Ele é motor da economia, guardião de biomas quando praticado com responsabilidade e peça fundamental no combate à fome e às mudanças climáticas globais.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6 mt-14">
+            <div class="glass rounded-3xl p-8">
+                <div class="w-12 h-12 flex items-center justify-center rounded-2xl bg-emerald-500/10 mb-6">
+                    <i class="fas fa-globe text-emerald-400 text-3xl"></i>
+                </div>
+                <div class="font-semibold text-2xl tracking-tight mb-3">Segurança Alimentar Global</div>
+                <p class="text-zinc-400 leading-relaxed">O Brasil é um dos principais responsáveis por alimentar o mundo, contribuindo significativamente para a produção global de alimentos.</p>
+            </div>
+            <div class="glass rounded-3xl p-8">
+                <div class="w-12 h-12 flex items-center justify-center rounded-2xl bg-emerald-500/10 mb-6">
+                    <i class="fas fa-chart-line text-emerald-400 text-3xl"></i>
+                </div>
+                <div class="font-semibold text-2xl tracking-tight mb-3">Motor da Economia</div>
+                <p class="text-zinc-400 leading-relaxed">Representa quase um quarto do PIB nacional e é um dos maiores responsáveis pelo saldo positivo da balança comercial brasileira.</p>
+            </div>
+            <div class="glass rounded-3xl p-8">
+                <div class="w-12 h-12 flex items-center justify-center rounded-2xl bg-emerald-500/10 mb-6">
+                    <i class="fas fa-leaf text-emerald-400 text-3xl"></i>
+                </div>
+                <div class="font-semibold text-2xl tracking-tight mb-3">Futuro do Planeta</div>
+                <p class="text-zinc-400 leading-relaxed">Com práticas cada vez mais sustentáveis, o campo brasileiro tem papel central na preservação ambiental e na transição para uma economia de baixo carbono.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- O TEMA -->
+    <section id="tema" class="bg-zinc-950 border-y border-white/10 py-20">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="max-w-2xl mx-auto text-center mb-14">
+                <div class="text-emerald-500 text-xs tracking-[3.5px] font-semibold mb-4">TEMA OFICIAL 2026</div>
+                <h2 class="section-header tracking-[-2.5px]">Agro Forte:<br>Futuro Sustentável</h2>
+                <p class="mt-5 text-xl text-zinc-400">Um chamado para fortalecer o agro brasileiro com responsabilidade, inovação e visão de longo prazo.</p>
+            </div>
+            
+            <div class="max-w-[860px] mx-auto">
+                <div class="glass rounded-3xl p-12 md:p-16 border border-white/10">
+                    <div class="prose prose-invert max-w-none text-[17px] leading-relaxed text-zinc-300">
+                        <p>O tema <span class="text-white font-semibold">"Agro Forte: Futuro Sustentável"</span> convida a uma reflexão profunda sobre o papel do campo na construção de um Brasil mais próspero, justo e ambientalmente equilibrado.</p>
+                        
+                        <p class="mt-6">Ser <span class="text-emerald-400 font-medium">"agro forte"</span> significa produzir com eficiência e tecnologia, valorizar quem trabalha na terra e proteger os recursos naturais para as próximas gerações.</p>
+                        
+                        <p class="mt-6">O <span class="text-emerald-400 font-medium">"futuro sustentável"</span> reforça que não existe produção forte sem respeito ao meio ambiente, sem inclusão social e sem inovação constante. É o equilíbrio entre produzir mais e cuidar melhor.</p>
+                    </div>
+                    
+                    <div class="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-10"></div>
+                    
+                    <div class="grid md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
+                        <div>
+                            <div class="font-semibold text-emerald-400 mb-4 tracking-wider text-xs">AGRO FORTE SIGNIFICA</div>
+                            <ul class="space-y-[13px] text-zinc-300">
+                                <li class="flex gap-3"><span class="text-emerald-400 mt-1">→</span> Produtividade com responsabilidade ambiental</li>
+                                <li class="flex gap-3"><span class="text-emerald-400 mt-1">→</span> Tecnologia acessível e inteligente</li>
+                                <li class="flex gap-3"><span class="text-emerald-400 mt-1">→</span> Valorização do produtor rural</li>
+                                <li class="flex gap-3"><span class="text-emerald-400 mt-1">→</span> Fortalecimento das comunidades do campo</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-emerald-400 mb-4 tracking-wider text-xs">FUTURO SUSTENTÁVEL SIGNIFICA</div>
+                            <ul class="space-y-[13px] text-zinc-300">
+                                <li class="flex gap-3"><span class="text-emerald-400 mt-1">→</span> Preservação de solo, água e biodiversidade</li>
+                                <li class="flex gap-3"><span class="text-emerald-400 mt-1">→</span> Redução de impactos no meio ambiente</li>
+                                <li class="flex gap-3"><span class="text-emerald-400 mt-1">→</span> Adaptação inteligente às mudanças climáticas</li>
+                                <li class="flex gap-3"><span class="text-emerald-400 mt-1">→</span> Legado positivo para as próximas gerações</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OS 4 PILARES -->
+    <section id="pilares" class="max-w-screen-2xl mx-auto px-8 py-20">
+        <div class="max-w-2xl mx-auto text-center mb-14">
+            <div class="text-emerald-500 text-xs tracking-[3.5px] font-semibold mb-3">OS PILARES DO TEMA</div>
+            <h2 class="section-header tracking-[-2.5px]">Os quatro pilares que<br>sustentam o agro do futuro</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="pillar-card glass border border-white/10 rounded-3xl p-9 group">
+                <div class="mb-8">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
+                        <i class="fas fa-leaf text-emerald-400 text-[30px]"></i>
+                    </div>
+                </div>
+                <h3 class="font-display text-[26px] font-bold tracking-[-1px] leading-none mb-4">Sustentabilidade<br>Ambiental</h3>
+                <p class="text-zinc-400">Práticas regenerativas, conservação de recursos naturais e redução de emissões. Produzir com respeito ao planeta.</p>
+                <div class="mt-8 pt-6 border-t border-white/10 text-[10px] tracking-[1.5px] text-emerald-400 font-medium">REGENERAR • PRESERVAR • EQUILIBRAR</div>
+            </div>
+            
+            <div class="pillar-card glass border border-white/10 rounded-3xl p-9 group">
+                <div class="mb-8">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
+                        <i class="fas fa-microchip text-emerald-400 text-[30px]"></i>
+                    </div>
+                </div>
+                <h3 class="font-display text-[26px] font-bold tracking-[-1px] leading-none mb-4">Inovação &amp;<br>Tecnologia</h3>
+                <p class="text-zinc-400">Agricultura de precisão, sensores, IA e conectividade. Tecnologia a serviço de uma produção mais inteligente e eficiente.</p>
+                <div class="mt-8 pt-6 border-t border-white/10 text-[10px] tracking-[1.5px] text-emerald-400 font-medium">DIGITALIZAR • AUTOMATIZAR • OTIMIZAR</div>
+            </div>
+            
+            <div class="pillar-card glass border border-white/10 rounded-3xl p-9 group">
+                <div class="mb-8">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
+                        <i class="fas fa-user-graduate text-emerald-400 text-[30px]"></i>
+                    </div>
+                </div>
+                <h3 class="font-display text-[26px] font-bold tracking-[-1px] leading-none mb-4">Fortalecimento<br>Humano</h3>
+                <p class="text-zinc-400">Educação, capacitação técnica e valorização do produtor rural. Pessoas no centro do desenvolvimento do campo.</p>
+                <div class="mt-8 pt-6 border-t border-white/10 text-[10px] tracking-[1.5px] text-emerald-400 font-medium">EDUCAR • CAPACITAR • VALORIZAR</div>
+            </div>
+            
+            <div class="pillar-card glass border border-white/10 rounded-3xl p-9 group">
+                <div class="mb-8">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
+                        <i class="fas fa-globe text-emerald-400 text-[30px]"></i>
+                    </div>
+                </div>
+                <h3 class="font-display text-[26px] font-bold tracking-[-1px] leading-none mb-4">Futuro<br>Resiliente</h3>
+                <p class="text-zinc-400">Comunidades fortes, economia circular e adaptação climática. Um agro preparado para os desafios do amanhã.</p>
+                <div class="mt-8 pt-6 border-t border-white/10 text-[10px] tracking-[1.5px] text-emerald-400 font-medium">RESISTIR • ADAPTAR • PROSPERAR</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL MESSAGE -->
+    <div class="max-w-screen-2xl mx-auto px-8 py-20 text-center">
+        <div class="max-w-lg mx-auto">
+            <h3 class="font-display text-[42px] tracking-[-2.2px] font-bold leading-none">O agro forte de hoje<br>é o futuro sustentável de amanhã.</h3>
+            <p class="mt-6 text-zinc-400">Quando fortalecemos o campo com responsabilidade e visão, construímos um Brasil mais próspero e um planeta mais equilibrado.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 bg-black py-12">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-y-6 text-sm">
+                <div class="flex items-center gap-x-3.5">
+                    <div class="w-9 h-9 bg-emerald-500 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-seedling text-[#0a0a0a] text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-semibold tracking-tight">AGRINHO 2026</span><br>
+                        <span class="text-xs text-zinc-500">FAEP / SENAR-PR</span>
+                    </div>
+                </div>
+                
+                <div class="flex flex-wrap gap-x-6 text-xs text-zinc-400">
+                    <a href="#" class="hover:text-white transition-colors">Sobre o Programa</a>
+                    <a href="#" class="hover:text-white transition-colors">Regulamento</a>
+                    <a href="#" class="hover:text-white transition-colors">Contato</a>
+                </div>
+                
+                <div class="text-xs text-zinc-500">
+                    © 2026 • <span class="text-emerald-400/70">Let him cook 🌾</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function initNavbar() {
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 60) {
+                    navbar.classList.add('nav-scrolled');
+                } else {
+                    navbar.classList.remove('nav-scrolled');
+                }
+            });
+        }
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                btn.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                menu.classList.add('hidden');
+                btn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        }
+        
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        const offset = 85;
+                        const bodyRect = document.body.getBoundingClientRect().top;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition - bodyRect - offset;
+                        
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                        
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            document.getElementById('mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
+                        }
+                    }
+                });
+            });
+        }
+        
+        function initEasterEgg() {
+            console.log('%c[AGRINHO 2026] Let him cook 🌾 — Versão elegante com imagem no hero.', 'color:#166534; font-size:9px');
+            
+            let clicks = 0;
+            const logo = document.querySelector('.fa-seedling');
+            if (logo) {
+                logo.addEventListener('click', () => {
+                    clicks++;
+                    if (clicks === 5) {
+                        logo.style.transition = 'transform 650ms cubic-bezier(0.68, -0.55, 0.27, 1.55)';
+                        logo.style.transform = 'rotate(360deg) scale(1.35)';
+                        setTimeout(() => {
+                            logo.style.transform = 'rotate(0deg) scale(1)';
+                            clicks = 0;
+                        }, 950);
+                        
+                        createConfetti();
+                    }
+                });
+            }
+        }
+        
+        function createConfetti() {
+            const colors = ['#10b981', '#34d399'];
+            for (let i = 0; i < 40; i++) {
+                const p = document.createElement('div');
+                p.style.cssText = `position:fixed;left:${Math.random()*100}vw;top:-15px;width:7px;height:7px;background:${colors[Math.floor(Math.random()*colors.length)]};border-radius:9999px;z-index:999999;pointer-events:none;`;
+                document.body.appendChild(p);
+                
+                const dur = Math.random() * 2600 + 2400;
+                p.animate([
+                    { transform: `translateY(0) rotate(0deg)`, opacity: 1 },
+                    { transform: `translateY(${window.innerHeight + 120}px) rotate(${Math.random()*80 + 40}deg)`, opacity: 0 }
+                ], { duration: dur, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }).onfinish = () => p.remove();
+            }
+        }
+        
+        function initializePage() {
+            initNavbar();
+            initSmoothScroll();
+            initEasterEgg();
+        }
+        
+        window.onload = initializePage;
+        
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            if (!menu.contains(e.target) && !btn.contains(e.target) && !menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+                btn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+    </script>
+</body>
+</html>
